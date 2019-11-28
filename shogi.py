@@ -140,6 +140,44 @@ class Piece:
         else:
             print("Invalid movement")
 
+    def gold_general_move(self, row, col, board):
+        new_positionx, new_positiony = Piece().new_position_check()
+        if board[row][col] == "Gv":    
+            if ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1 or (int(new_positionx)-col) == 0) \
+                and ((int(new_positiony)-row) == 1 or (int(new_positiony)-row) == 0) or ((int(new_positionx)-col) == 0) \
+                and (int(new_positiony)-row == -1):
+                board[int(new_positiony)][int(new_positionx)] = "Gv"
+                board[row][col] = " "
+            else:
+                print("Invalid movement")
+        elif board[row][col] == "G^":
+            if ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1 or (int(new_positionx)-col) == 0) \
+                and ((int(new_positiony)-row) == -1 or (int(new_positiony)-row) == 0) or ((int(new_positionx)-col) == 0) \
+                and (int(new_positiony)-row == 1):
+                board[int(new_positiony)][int(new_positionx)] = "G^"
+                board[row][col] = " "
+            else:
+                print("Invalid movement")
+
+    def silver_general_move(self, row, col, board):
+        new_positionx, new_positiony = Piece().new_position_check()
+        if board[row][col] == "Sv":    
+            if ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1 or (int(new_positionx)-col) == 0) \
+                and ((int(new_positiony)-row) == 1) or ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1) \
+                and (int(new_positiony)-row == -1):
+                board[int(new_positiony)][int(new_positionx)] = "Sv"
+                board[row][col] = " "
+            else:
+                print("Invalid movement")
+        elif board[row][col] == "S^":
+            if ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1 or (int(new_positionx)-col) == 0) \
+                and ((int(new_positiony)-row) == -1) or ((int(new_positionx)-col) == 1 (int(new_positionx)-col) == -1) \
+                and (int(new_positiony)-row == 1):
+                board[int(new_positiony)][int(new_positionx)] = "S^"
+                board[row][col] = " "
+            else:
+                print("Invalid movement")
+
 
 """
 Main program
@@ -186,6 +224,14 @@ while True:
     #Checks movement of kings
     elif board[row][col] == "Kv" or board[row][col] == "K^" :
         Piece().king_move(row, col, board)
+    
+    #Checks movement of gold generals
+    elif board[row][col] == "Gv" or board[row][col] == "G^" :
+        Piece().gold_general_move(row, col, board)
+
+    #Checks movement of silver generals
+    elif board[row][col] == "Sv" or board[row][col] == "S^" :
+        Piece().silver_general_move(row, col, board)
                
     else:
         print(board[row][col])
