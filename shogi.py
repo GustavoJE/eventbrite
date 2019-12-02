@@ -18,7 +18,7 @@ while True:
   print("\n\n".join(["\t".join([str(cell) for cell in row]) for row in board]))
 
   # Asks for coordinates and prints the contents of the selected box
-  col_s, row_s = input("Input coordinates (x,y): ").split()
+  col_s, row_s = input("Input coordinates (x y): ").split()
   col = int(col_s)
   row = int(row_s)
 

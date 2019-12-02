@@ -138,7 +138,7 @@ class Piece:
         print("Invalid movement")
     elif board[row][col] == "S^":
       if ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1 or (int(new_positionx)-col) == 0) \
-        and ((int(new_positiony)-row) == -1) or ((int(new_positionx)-col) == 1 (int(new_positionx)-col) == -1) \
+        and ((int(new_positiony)-row) == -1) or ((int(new_positionx)-col) == 1 or (int(new_positionx)-col) == -1) \
         and (int(new_positiony)-row == 1):
         board[int(new_positiony)][int(new_positionx)] = "S^"
         board[row][col] = " "
